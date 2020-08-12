@@ -6,18 +6,28 @@
 
 function generateQuestion() { }
 
+// render Question No. 2
+// values needed:
+//    STORE.quizStarted = true
+//    STORE.questionNumber = 2  (we will -1 to read first question)
+// To Do:
+//    Replace  @QUESTION_TEXT
+//    Replace  @ANSWER_ONE ... _FOUR
+//    Replace
+
+
 function renderPage() {
   // Refer back to STORE.questionNumber
   // Before the quiz starts, render first start page
   if (STORE.quizStarted === false) {
-    $('.js-render-page-here').html(STORE.pageTemplates[0].content);
+    $('.js-render-page-here').html(pageTemplates[0].content);
     // If STORE.questionNumber is within question range, render question page
   } else if (STORE.questionNumber < STORE.questions.length) {
     //call generateQuestion here
-    $('.js-render-page-here').html(STORE.pageTemplates[1].content);
+    $('.js-render-page-here').html(pageTemplates[1].content);
   } else {
     // if store.currentQuestion === store.questions.length
-    $('.js-render-page-here').html(STORE.pageTemplates[2].content);
+    $('.js-render-page-here').html(pageTemplates[2].content);
   }
 }
 
