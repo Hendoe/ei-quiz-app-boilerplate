@@ -74,24 +74,24 @@ const pageTemplates = [
     pageName: 'frontPage',
     content: `
   <p class='startPara'>So begins the quiz. Test your knowledge by pressing the start button below</p>  
-  <button type='submit' id='progress'>Start Quiz</button>  
+  <button class='begin'>Start Quiz</button>  
   `},
   {
     pageName: 'questionPage',
     content: `
   <h2>Question ${STORE.questionNumber}<h2>   
   <form>
-      <p>${STORE.questions[STORE.questionNumber-1].question}</p>
+      <p>${STORE.questions[STORE.questionNumber].question}</p>
           <input name="answers" type='radio' value='answer 1'>
-            <label for='answer 1'>${STORE.questions[STORE.questionNumber-1].answers[0]}</label><br>
+            <label for='answer 1'>${STORE.questions[STORE.questionNumber].answers[0]}</label><br>
           <input name="answers" type='radio' value='answer 2'>
-            <label for='answer 2'>${STORE.questions[STORE.questionNumber-1].answers[1]}</label><br>
+            <label for='answer 2'>${STORE.questions[STORE.questionNumber].answers[1]}</label><br>
           <input name="answers" type='radio' value='answer 3'>
-            <label for='answer 3'>${STORE.questions[STORE.questionNumber-1].answers[2]}</label><br>
+            <label for='answer 3'>${STORE.questions[STORE.questionNumber].answers[2]}</label><br>
           <input name="answers" type='radio' value='answer 4'>
-            <label for='answer 4'>${STORE.questions[STORE.questionNumber-1].answers[3]}</label><br>                       
+            <label for='answer 4'>${STORE.questions[STORE.questionNumber].answers[3]}</label><br>                       
     </form>
-    <button type='submit' id='progress'>Submit</button>
+    <button type='submit' class='progress'>Submit</button>
   <footer class='ticker'>
       <p class='progress'>${STORE.questionNumber} of ${STORE.questions.length}</p>
       <p class='scoreCount'>${STORE.score} correct, ${STORE.questionNumber - STORE.score-1} incorrect.</p>
@@ -102,15 +102,13 @@ const pageTemplates = [
     content: `
   <h2>Results</h2>
   <h2 class='scoreResult'> </h2>
-  <p>[questions[0]]<br>[userAnswers[0]]</p>
-  <p>[questions[1]]<br>[userAnswers[1]]</p>
-  <p>[questions[2]]<br>[userAnswers[2]]</p>
-  <p>[questions[3]]<br>[userAnswers[3]]</p>
-  <p>[questions[4]]<br>[userAnswers[4]]</p>
-  <img src='images/trophy-two-correct.jpg' alt='Hello Kitty Guitar'>
-  
+  <p>${STORE.questions[0].correctAnswer}<br>[userAnswers[0]]</p>
+  <p>${STORE.questions[1].correctAnswer}<br>[userAnswers[1]]</p>
+  <p>${STORE.questions[2].correctAnswer}<br>[userAnswers[2]]</p>
+  <p>${STORE.questions[3].correctAnswer}<br>[userAnswers[3]]</p>
+  <p>${STORE.questions[4].correctAnswer}<br>[userAnswers[4]]</p>
       <!--although this is a different button than the start button, it's style and function remains the same-->
-    <button id='start'>Restart Quiz</button>
+    <button class='restart'>Restart Quiz</button>
   
   `
   }];

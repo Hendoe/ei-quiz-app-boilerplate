@@ -4,91 +4,172 @@
 
 'use strict';
 
-function generateQuestion() { }
+function generateQuestions() {
+  let question = STORE.questions[STORE.currentQuestion];
+  return pageTemplates[1].content;
+}
 
-// render Question No. 2
-// values needed:
-//    STORE.quizStarted = true
-//    STORE.questionNumber = 2  (we will -1 to read first question)
-// To Do:
-//    Replace  @QUESTION_TEXT
-//    Replace  @ANSWER_ONE ... _FOUR
-//    Replace
+function generateStartPage() {
+  return pageTemplates[0].content;
+}
 
+function generateResultsPage() {
+  return pageTemplates[2].content;
+}
 
-function renderPage() {
-  // Refer back to STORE.questionNumber
-  // Before the quiz starts, render first start page
-  if (STORE.quizStarted === false) {
-    $('.js-render-page-here').html(pageTemplates[0].content);
-    // If STORE.questionNumber is within question range, render question page
-  } else if (STORE.questionNumber < STORE.questions.length) {
-    //call generateQuestion here
-    $('.js-render-page-here').html(pageTemplates[1].content);
+function renderer() {
+  if (STORE.questionNumber < STORE.questions.length) {
+    let html = generateQuestions();
+    $('main').html(html);
+    clickerTwo();
   } else {
-    // if store.currentQuestion === store.questions.length
-    $('.js-render-page-here').html(pageTemplates[2].content);
+    let html = generateResultsPage();
+    $('main').html(html);
+    clickerThree();
   }
 }
 
 function main() {
-  beginQuiz();
-  //checkAnswer();  
+  let startPage = generateStartPage();
+  $('main').html(startPage);
+  clicker();
+};
+
+function submitAnswer(event) {
+  event.preventDefault();
+  let answer = $('input[name=answers]:checked').val();
+  if(STORE.questions[STORE.currentQuestion].correctAnswer == answer){
+    alert('You are right!');
+  } else {
+    alert('You are wrong!')
+  }
+  STORE.questionNumber++;
+  renderer();
 }
 
-// $('#start').on('click', function (evt){
-//   evt.preventDefault();
-  
-//   beginQuiz();
-  
-// });
+function completeItem() {
+  console.log($(this).parent());
+  alert('you are done');
+  renderer();
+}
 
-//Will take to first question of Quiz - from front or results page
-function beginQuiz() {
-  renderPage();
-  $('#progress').on('click', function (evt) {
-    evt.preventDefault();
-    if(STORE.quizStarted === false){
+function clicker(){
+  $('.begin').click(function(){
+    console.log('oink');
     STORE.quizStarted = true;
-    STORE.questionNumber++;    
-    renderPage();
+    STORE.questionNumber++
     console.log(STORE.questionNumber);
     console.log(STORE.quizStarted);
-    }else if(STORE.questionNumber < STORE.questions.length){
-      STORE.questionNumber++;    
-    renderPage();
+    renderer();
+  });
+};
+
+function clickerTwo(){
+  $('.progress').click(function(){
+    console.log('oink');
+    STORE.questionNumber++;
     console.log(STORE.questionNumber);
     console.log(STORE.quizStarted);
-    }
-  });  
-}
+    renderer();
+  });
+};
 
-// function checkAnswer() {
-//   renderPage();
-//   $('#progress').on('click', function (evt) {
-//     evt.preventDefault();    
-//     STORE.questionNumber++;    
-//     renderPage();
-//     console.log(STORE.questionNumber);
-//     console.log(STORE.quizStarted);
-//   });
-// }
-// // Will check answer and increment counter
-// function checkAnswer() {
-//   $('#checkAnswer').on('click', function (evt) {
-//     evt.preventDefault();
-//     console.log(counter);
-//     STORE.questionNumber++;
-//     console.log(counter);
-//     renderPage();
-//   });
-// }
-
-
-//function goBack() { }
-
+function clickerThree(){
+  $('.restart').click(function(){
+    console.log('oink');
+    STORE.questionNumber=1;
+    console.log(STORE.questionNumber);
+    console.log(STORE.quizStarted);
+    renderer();
+  });
+};
 
 $(main);
+
+/*
+function renderStart() {
+  $('.js-render-page-here').replaceWith(pageTemplates[0].content);
+}
+
+function renderQuestions() {
+  console.log('i hear u');
+  $('.js-render-page-here').replaceWith(pageTemplates[1].content);
+  console.log(pageTemplates[1].content)
+}
+
+function renderResults() {
+  $('.js-render-page-here').replaceWith(pageTemplates[3].content);
+}
+
+$(main);
+*/
+
+/* pure suffering
+function renderStart() {
+  $('.js-render-page-here').html(pageTemplates[0].content);
+}
+
+//leave this to Jeff's magic
+function renderQuestions() {
+  if (STORE.questionNumber < 6) {
+    $('.js-render-page-here').replaceWith(pageTemplates[1].content);
+    progressQuiz();
+  }
+};
+
+function renderFinalQ() {
+  $('.js-render-page-here').replaceWith(pageTemplates[2].content);
+  endQuiz();
+}
+
+function renderResults() {
+  $('.js-render-page-here').replaceWith(pageTemplates[3].content);
+};
+
+function main() {
+  renderStart();
+  beginQuiz();
+  //renderQuestions();
+  //renderFinalQ();
+  //renderResults();
+  //endQuiz();
+}
+
+//Will take to first question of Quiz
+function beginQuiz() {
+  $('#begin').on('click', function (evt) {
+    evt.preventDefault();
+    STORE.quizStarted = true;
+    STORE.questionNumber++;
+    console.log(STORE.questionNumber);
+    console.log(STORE.quizStarted);
+    renderQuestions();
+  });
+}
+
+function progressQuiz() {
+  $('#progress').on('click', function (evt) {
+    evt.preventDefault();
+    STORE.questionNumber++;
+    console.log(STORE.questionNumber);
+    console.log(STORE.quizStarted);
+    renderQuestions();
+  });
+};
+
+function endQuiz() {
+  $('#finish').on('click', function (evt) {
+    evt.preventDefault();
+    console.log(STORE.questionNumber);
+    console.log(STORE.quizStarted);
+    renderResults();
+  })
+};
+
+$(main);
+*/
+
+
 
 /**
  *
