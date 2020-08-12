@@ -5,16 +5,40 @@
 'use strict';
 
 function generateQuestions() {
-  let question = STORE.questions[STORE.currentQuestion];
-  return pageTemplates[1].content;
+  let question = STORE.questions[STORE.questionNumber].question;
+  //return pageTemplates[1].content;
+  return `<h2>Question ${STORE.questionNumber}<h2>   
+  <form>
+      <p>${STORE.questions[STORE.questionNumber].question}</p>
+          <input name="answers" type='radio' value=${STORE.questions[STORE.questionNumber].answers[0]}>
+            <label for='answer 1'>${STORE.questions[STORE.questionNumber].answers[0]}</label><br>
+          <input name="answers" type='radio' value=${STORE.questions[STORE.questionNumber].answers[1]}>
+            <label for='answer 2'>${STORE.questions[STORE.questionNumber].answers[1]}</label><br>
+          <input name="answers" type='radio' value=${STORE.questions[STORE.questionNumber].answers[2]}>
+            <label for='answer 3'>${STORE.questions[STORE.questionNumber].answers[2]}</label><br>
+          <input name="answers" type='radio' value=${STORE.questions[STORE.questionNumber].answers[3]}>
+            <label for='answer 4'>${STORE.questions[STORE.questionNumber].answers[3]}</label><br>                       
+    </form>
+    <button type='submit' class='quizProgress'>Submit</button>
+  <footer class='ticker'>
+      <p class='progress'>${STORE.questionNumber} of ${STORE.questions.length-1}</p>
+      <p class='scoreCount'>${STORE.score} correct, ${STORE.questionNumber - STORE.score-1} incorrect.</p>
+  </footer>`;
 }
 
 function generateStartPage() {
-  return pageTemplates[0].content;
+  //return pageTemplates[0].content;
+  return  `<p class='startPara'>So begins the quiz. Test your knowledge by pressing the start button below</p>  
+<button class='begin'>Start Quiz</button>`;
 }
 
 function generateResultsPage() {
-  return pageTemplates[2].content;
+  //return pageTemplates[2].content;
+  return `<h2>Results</h2>
+  <h2 class='scoreResult'> </h2>
+  <p class='scoreBoard'>${STORE.score} Correct!</p>
+      <!--although this is a different button than the start button, it's style and function remains the same-->
+    <button class='restart'>Restart Quiz</button>`;
 }
 
 function renderer() {
@@ -36,15 +60,17 @@ function main() {
 };
 
 function submitAnswer(event) {
-  event.preventDefault();
+  //event.preventDefault();
   let answer = $('input[name=answers]:checked').val();
-  if(STORE.questions[STORE.currentQuestion].correctAnswer == answer){
+  console.log(answer);
+  if(STORE.questions[STORE.questionNumber].correctAnswer == answer){
     alert('You are right!');
+    STORE.score++;
   } else {
-    alert('You are wrong!')
+    alert('You are wrong!');
   }
-  STORE.questionNumber++;
-  renderer();
+  //STORE.questionNumber++;
+  //renderer();
 }
 
 function completeItem() {
@@ -54,7 +80,8 @@ function completeItem() {
 }
 
 function clicker(){
-  $('.begin').click(function(){
+  $('.begin').click(function(event){
+    event.preventDefault();
     console.log('oink');
     STORE.quizStarted = true;
     STORE.questionNumber++
@@ -65,8 +92,9 @@ function clicker(){
 };
 
 function clickerTwo(){
-  $('.progress').click(function(){
-    console.log('oink');
+  $('.quizProgress').click(function(event){
+    event.preventDefault();
+    submitAnswer();
     STORE.questionNumber++;
     console.log(STORE.questionNumber);
     console.log(STORE.quizStarted);
@@ -75,11 +103,13 @@ function clickerTwo(){
 };
 
 function clickerThree(){
-  $('.restart').click(function(){
+  $('.restart').click(function(event){
+    event.preventDefault();
     console.log('oink');
     STORE.questionNumber=1;
     console.log(STORE.questionNumber);
     console.log(STORE.quizStarted);
+    STORE.score=0;
     renderer();
   });
 };
