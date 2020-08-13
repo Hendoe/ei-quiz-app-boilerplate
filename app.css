@@ -1,15 +1,21 @@
+/* Your styles should be mobile-first and responsive */
+
+/** 
+  * If you are unclear on how to utilize a mobile-first, responsive technique to write your CSS, here is an example: 
+  *
+  * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
+  *
+*/
 html {
   background-color:#000000;
   color:#fffff0;
 }
 
-h1 {
-  font-size: 24px;
-}
-
-.legend {
-    height: 75%;
-    width: 15%;
+header h1 {
+  font-size: 25;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 header, main {
@@ -18,11 +24,11 @@ header, main {
 }
 
 .startPara {
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 }
 
-.flank {
-  height: 0;
+{
+box-sizing: border-box;
 }
 
 .ticker {
@@ -45,43 +51,18 @@ header, main {
   text-align: center;
 }
 
-.progress , .scoreCount {
-  font-size: 12px;
-}
-
- @media (min-width: 800px) {
-
-  h1 {
-    font-size: 64px;
-    font-family: 'Times New Roman', Times, serif;
+@media (min-width: 700px) {
+  header h1 {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
   }
-
-  .flank {
-    height: 85px;
-    width: 150px;
+  body {
+    width: 80%;
+    margin: 0 auto;
   }
-
-  p {
-    font-size: 28px;
-  }
-
-  .legend {
-    height: 100%;
+  .main-nav-list-item {
+    float:left;
     width: 25%;
   }
-
-  button {
-    margin-top: 15px;
-    size: 50px 75px;
-  }
-
-  .progress , .scoreCount {
-    font-size: 28px;
-  }
-
-  .startPara {
-    padding-bottom: 40px;
-  }
-  
-
- };

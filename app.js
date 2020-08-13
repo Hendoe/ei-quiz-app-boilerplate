@@ -88,8 +88,7 @@ function submitAnswer(event) {
   } else {
     alert(`You are wrong! The Correct answer is ${STORE.questions[STORE.questionNumber].correctAnswer}`);
   }
-  //STORE.questionNumber++;
-  //renderer();
+  
 }
 
 function completeItem() {
@@ -134,91 +133,6 @@ function clickerThree(){
 };
 
 $(main);
-
-/*
-function renderStart() {
-  $('.js-render-page-here').replaceWith(pageTemplates[0].content);
-}
-
-function renderQuestions() {
-  console.log('i hear u');
-  $('.js-render-page-here').replaceWith(pageTemplates[1].content);
-  console.log(pageTemplates[1].content)
-}
-
-function renderResults() {
-  $('.js-render-page-here').replaceWith(pageTemplates[3].content);
-}
-
-$(main);
-*/
-
-/* pure suffering
-function renderStart() {
-  $('.js-render-page-here').html(pageTemplates[0].content);
-}
-
-//leave this to Jeff's magic
-function renderQuestions() {
-  if (STORE.questionNumber < 6) {
-    $('.js-render-page-here').replaceWith(pageTemplates[1].content);
-    progressQuiz();
-  }
-};
-
-function renderFinalQ() {
-  $('.js-render-page-here').replaceWith(pageTemplates[2].content);
-  endQuiz();
-}
-
-function renderResults() {
-  $('.js-render-page-here').replaceWith(pageTemplates[3].content);
-};
-
-function main() {
-  renderStart();
-  beginQuiz();
-  //renderQuestions();
-  //renderFinalQ();
-  //renderResults();
-  //endQuiz();
-}
-
-//Will take to first question of Quiz
-function beginQuiz() {
-  $('#begin').on('click', function (evt) {
-    evt.preventDefault();
-    STORE.quizStarted = true;
-    STORE.questionNumber++;
-    console.log(STORE.questionNumber);
-    console.log(STORE.quizStarted);
-    renderQuestions();
-  });
-}
-
-function progressQuiz() {
-  $('#progress').on('click', function (evt) {
-    evt.preventDefault();
-    STORE.questionNumber++;
-    console.log(STORE.questionNumber);
-    console.log(STORE.quizStarted);
-    renderQuestions();
-  });
-};
-
-function endQuiz() {
-  $('#finish').on('click', function (evt) {
-    evt.preventDefault();
-    console.log(STORE.questionNumber);
-    console.log(STORE.quizStarted);
-    renderResults();
-  })
-};
-
-$(main);
-*/
-
-
 
 /**
  *
