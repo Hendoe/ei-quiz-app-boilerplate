@@ -1,20 +1,16 @@
-/* Your styles should be mobile-first and responsive */
-
-/** 
-  * If you are unclear on how to utilize a mobile-first, responsive technique to write your CSS, here is an example: 
-  *
-  * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
-  *
-*/
 html {
   background-color:#000000;
   color:#fffff0;
 }
 
 h1 {
-  font-size: 25;
+  font-size: 24px;
 }
 
+.legend {
+    height: 75%;
+    width: 15%;
+}
 
 header, main {
   text-align: center;
@@ -22,25 +18,13 @@ header, main {
 }
 
 .startPara {
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
-{
-box-sizing: border-box;
+.flank {
+  height: 0;
 }
 
-/*
-.main-nav-list {
-  list-style: none;
-  padding: 0;
-}
-.main-nav-list-item {
-  padding: .7rem 0;
-  text-align:center;
-  background-color: lime;
-  border: 1px solid #000;
-}
-*/
 .ticker {
   display: flex;
   flex-direction: row;
@@ -60,77 +44,44 @@ box-sizing: border-box;
   max-width: 250px;
   text-align: center;
 }
-/*
-.start {
 
+.progress , .scoreCount {
+  font-size: 12px;
 }
 
-.box {
-  background-color: pink;
-  border:1px solid blue;
-  margin: 10px 0;
-  padding:10px;
-}
+ @media (min-width: 800px) {
 
-@media (min-width: 700px) {
-  body {
-    width: 80%;
-    margin: 0 auto;
+  h1 {
+    font-size: 64px;
+    font-family: 'Times New Roman', Times, serif;
   }
-  .main-nav-list-item {
-    float:left;
+
+  .flank {
+    height: 85px;
+    width: 150px;
+  }
+
+  p {
+    font-size: 28px;
+  }
+
+  .legend {
+    height: 100%;
     width: 25%;
   }
-  /*
-  * A grid can do this math for you!
-  */
-  /*
-  .box {
-    width: 47%;
-    float: left;
-  }
-  /*
-   * targeting every other '.box' to add a right margin
-   */
-   /*
-  .box:nth-child(odd) {
-    margin-right: 6%;
-  }
-}
 
-/*
- * Here is where you would write your styles for screens
- * larger than 1024px.
- *
- * These styles OVERRIDE any styles written above.
- *
- * Write these styles 3rd!
- *//*
- @media (min-width: 1024px) {
-  /*
-  * A grid can do this math for you!
-  *//*
-  .box {
-    width: 29.33%;
-    float: left;
-    margin-right: 6%;
+  button {
+    margin-top: 15px;
+    size: 50px 75px;
   }
-  /*
-   * targeting every third '.box' to add a right margin
-   *//*
-  .box:nth-child(3n+3) {
-    margin-right: 0;
-  }
-}
 
-/*
- * clearfix hack 
- * https://css-tricks.com/snippets/css/clear-fix/
- */
-/*
-.group:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-*/
+  .progress , .scoreCount {
+    font-size: 28px;
+  }
+
+  .startPara {
+    padding-bottom: 40px;
+  }
+  
+
+ };
