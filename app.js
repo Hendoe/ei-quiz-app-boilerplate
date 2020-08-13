@@ -28,17 +28,36 @@ function generateQuestions() {
 
 function generateStartPage() {
   //return pageTemplates[0].content;
-  return  `<p class='startPara'>So begins the quiz. Test your knowledge by pressing the start button below</p>  
+  return  `<p class='startPara'>  
+  So begins the quiz. Test your knowledge by pressing the start button below</p>
+  <img src="images/beethoven-guitar-resize.jpg" alt="Beethoven Challenges You!"/><br>
 <button class='begin'>Start Quiz</button>`;
 }
 
 function generateResultsPage() {
   //return pageTemplates[2].content;
-  return `<h2>Results</h2>
-  <h2 class='scoreResult'> </h2>
+  let trophy = '';
+  switch(STORE.score) {
+    case 0: trophy = `<img src="images/trophy-zero-correct.jpg" alt="Too bad, so sad!"/><p>Too bad, so sad!</p>`;
+    break;
+    case 1: trophy = `<img src="images/trophy-one-correct.jpg" alt="Better luck next time!"/><p>Better luck next time!</p>`;
+    break;
+    case 2: trophy = `<img src="images/trophy-two-correct.jpg" alt="Room for Improvement!"/><p>Room for Improvement!</p>`;
+    break;
+    case 3: trophy = `<img src="images/trophy-three-correct.jpg" alt="Not bad!"/><p>Not bad!</p>`;
+    break;
+    case 4: trophy = `<img src="images/trophy-four-correct.jpg" alt="Pretty good!"/><p>Pretty good!</p>`;
+    break;
+    case 5: trophy = `<img src="images/trophy-five-correct.jpg" alt="Great job!"/><p>Great job!</p>`;
+    break;
+    case 6: trophy = `<img src="images/trophy-all-correct.jpg" alt="Outta this world!"/><p>Cosmic brain! Outta this world!</p>`;
+    break;
+  }
+  return   `<h2>Results</h2>
+  <h2 class='scoreResult'> </h2>  
   <p class='scoreBoard'>${STORE.score} Correct!</p>
-      <!--although this is a different button than the start button, it's style and function remains the same-->
-    <button class='restart'>Restart Quiz</button>`;
+  <div class='trophy'>${trophy}</div>
+  <button class='restart'>Restart Quiz</button>`;
 }
 
 function renderer() {

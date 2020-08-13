@@ -6,13 +6,23 @@
   * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
   *
 */
+html {
+  background-color:#000000;
+  color:#fffff0;
+}
+
+h1 {
+  font-size: 25;
+}
+
 
 header, main {
   text-align: center;
+  
 }
 
 .startPara {
-  padding-bottom: 400px;
+  padding-bottom: 40px;
 }
 
 {
@@ -46,6 +56,10 @@ box-sizing: border-box;
   flex: 1;
 }
 
+.trophy > img {
+  max-width: 250px;
+  text-align: center;
+}
 /*
 .start {
 
