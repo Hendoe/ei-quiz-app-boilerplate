@@ -30,7 +30,7 @@ function generateStartPage() {
   //return pageTemplates[0].content;
   return  `<p class='startPara'>  
   So begins the quiz. Test your knowledge by pressing the start button below</p>
-  <img src="images/beethoven-guitar-resize.jpg" alt="Beethoven Challenges You!"/><br>
+  <img class='legend' src="images/beethoven-guitar-resize.jpg" alt="Beethoven Challenges You!"/><br>
 <button class='begin'>Start Quiz</button>`;
 }
 
@@ -86,7 +86,7 @@ function submitAnswer(event) {
     alert('You are right!');
     STORE.score++;
   } else {
-    alert('You are wrong!');
+    alert(`You are wrong! The Correct answer is ${STORE.questions[STORE.questionNumber].correctAnswer}`);
   }
   //STORE.questionNumber++;
   //renderer();

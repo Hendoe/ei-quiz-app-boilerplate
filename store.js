@@ -36,22 +36,22 @@ const STORE = {
     {
       question: 'Which style of music did Jimi Hendrix pioneer?',
       answers: [
-        'Jazz Fusion',
+        'Jazz_Fusion',
         'Funk',
-        'Psychedelic Rock',
-        'Jazz Bebop'
+        'Psychedelic_Rock',
+        'Jazz_Bebop'
       ],
-      correctAnswer: 'Psychedelic'
+      correctAnswer: 'Psychedelic_Rock'
     },
     {
       question: 'Which of the following is NOT a rapper\'s name?',
       answers: [
-        'Doctor Octagon',
-        'Ghostface Killah',
-        'Lil Poopy',
-        'Ice Truckah'
+        'Doctor_Octagon',
+        'Ghostface_Killah',
+        'Lil_Poopy',
+        'Ice_Truckah'
       ],
-      correctAnswer: 'Ice'
+      correctAnswer: 'Ice_Truckah'
     },
     {
       question: 'What comes next? "Do, Re, Mi, __"',
