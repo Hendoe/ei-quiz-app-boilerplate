@@ -92,7 +92,7 @@ function submitAnswer(event) {
    }
   } catch(error) {
     alert('Please select an answer');
-  }
+  }  
 }
 
 function completeItem() {
