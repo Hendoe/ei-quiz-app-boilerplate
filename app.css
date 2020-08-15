@@ -20,7 +20,6 @@ header h1 {
 
 header, main {
   text-align: center;
-  
 }
 
 .startPara {
@@ -52,17 +51,35 @@ box-sizing: border-box;
 }
 
 @media (min-width: 700px) {
+  
   header h1 {
     display: flex;
     flex-direction: row;
     text-align: center;
     justify-content: space-between;
   }
+  
   body {
     width: 80%;
     margin: 0 auto;
   }
+  
   .main-nav-list-item {
     float:left;
     width: 25%;
   }
+
+  button {
+    margin-top: 15px;
+    size: 50px 75px;
+  }
+
+  .progress , .scoreCount {
+    font-size: 28px;
+  }
+
+  .startPara {
+    padding-bottom: 40px;
+  }
+  
+ }

@@ -1,13 +1,9 @@
 ### Boilerplate app structure for Quiz App project
-Music Quiz App
-Designed and created by
-Steven Henderson and Jeffrey Chodil
 
-Thinkful Engineering Immersion Cohort-44
-August 11-12, 2020
+Music Quiz App Designed and created by Steven Henderson and Jeffrey Chodil
 
-Repo
-https://github.com/Hendoe/ei-quiz-app-boilerplate.git
+Thinkful Engineering Immersion Cohort-44 August 11-12, 2020
 
-Live Quiz App
-https://hendoe.github.io/ei-quiz-app-boilerplate/
+Repo https://github.com/Hendoe/ei-quiz-app-boilerplate.git
+
+Live Quiz App https://hendoe.github.io/ei-quiz-app-boilerplate/

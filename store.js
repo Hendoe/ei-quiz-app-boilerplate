@@ -4,16 +4,6 @@
 const STORE = {
   questions: [
     {
-      question: '',
-      answers: [
-        '',
-        '',
-        '',
-        ''
-      ],
-      correctAnswer: ''
-    },
-    {
       question: 'How many notes are in a Pentatonic Scale?',
       answers: [
         'Four',
